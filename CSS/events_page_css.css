@@ -1,0 +1,59 @@
+
+/*make text opacity of previous and next month accessible*/
+.tribe-events-othermonth, .tribe-events-month-event-title, .tribe-events-othermonth div[id*=tribe-events-daynum-] div[id*=tribe-events-daynum-] {
+     opacity: 1.0 !important;
+}
+
+/*Opacity of the header date text of the previous and next month*/
+
+.tribe-events-othermonth div[id*=tribe-events-daynum-] {
+    opacity: 1.0 !important;
+}
+
+/*foreground and background color for the remainder of the month*/
+.tribe-events-calendar div[id*=tribe-events-daynum-], .tribe-events-calendar div[id*=tribe-events-daynum-] a {
+    background-color: #737373 !important;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/*Protect current month from modification*/
+.tribe-events-calendar td.tribe-events-past div[id*=tribe-events-daynum-], .tribe-events-calendar td.tribe-events-past div[id*=tribe-events-daynum-]>a {
+    background-color: #f7f7f7 !important;
+    color: #707070;
+}
+
+/*Protect Next month from changing*/
+.tribe-events-calendar td.tribe-events-othermonth.tribe-events-future div[id*=tribe-events-daynum-]
+{
+	background-color: #f7f7f7 !important;
+}
+
+/*foreground and background color for the remainder of the month hover*/
+.tribe-events-calendar a:hover div[id*=tribe-events-daynum-] a:hover, .tribe-events-calendar div[id*=tribe-events-daynum-] a:hover{
+	color: rgba(255,255,255,0.7) !important;
+}
+
+/*Stop above opacity effect from affecting non dark grey part before the event date*/
+
+.tribe-events-calendar td.tribe-events-past div[id*=tribe-events-daynum-]>a {
+    background-color: #f7f7f7 !important;
+    color: #707070 !important;
+}
+
+/*Stop above white hover opacity to affect active events on the next month part*/
+
+.tribe-events-calendar td.tribe-events-othermonth.tribe-events-future div[id*=tribe-events-daynum-]>a {
+    color: #454545 !important;
+}
+
+/* Background color for the next month initial dates*/
+.tribe-events-calendar td.tribe-events-othermonth.tribe-events-future div[id*=tribe-events-daynum-], .tribe-events-calendar td.tribe-events-othermonth.tribe-events-future div[id*=tribe-events-daynum-]>a {
+    background-color: #f7f7f7 !important;
+}
+
+/*Past event opacity*/
+.tribe-events-calendar td.tribe-events-past .tribe-events-month-event-title a, .tribe-events-calendar  {
+    opacity: 1.0 !important;
+}

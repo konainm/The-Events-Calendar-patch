@@ -30,7 +30,16 @@ function tribe_genesis_bypass_genesis_do_post_content() {
 	}
 }
 
-/* The above functions will only be implemented if both of the following conditions are met
+/*
+* Genesis Remove Author Box from Single Templates for the The Events Calendar
+*/
+function tribe_genesis_hide_author_single_events( $query ) {
+    if( is_singular( 'tribe_events' ) || $query->query['post_type'] == 'tribe_venue' || $query->query['post_type'] == 'tribe_organizer' ) {
+	remove_action( 'genesis_after_entry', 'genesis_do_author_box_single', 8 );
+    }
+}
+
+/* The patches and CSS would only be implemented if both of the following conditions are met
  * 1) Genesis Framework is activated
  * 2) The Events Calendar is activated
 */
@@ -39,7 +48,10 @@ if(in_array('the-events-calendar/the-events-calendar.php', apply_filters('active
 	$theme_name = wp_get_theme();
 	if($theme_name->get('Template') === "genesis"){
 		add_action( 'get_header', 'tribe_genesis_bypass_genesis_do_post_content' );
+		add_action( 'pre_get_posts', 'tribe_genesis_hide_author_single_events' );
 		wp_register_style( 'tec_css', plugins_url( '/CSS/tec_css.css' , __FILE__ ) );
+		wp_register_style( 'events_page_css', plugins_url( '/CSS/events_page_css.css', __FILE__ ) );
 		wp_enqueue_style( 'tec_css' );
+		wp_enqueue_style( 'events_page_css' );
 	}
 }

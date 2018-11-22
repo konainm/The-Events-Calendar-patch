@@ -1,9 +1,9 @@
 /*Events form input fix*/
 
 #tribe-community-events input, #tribe-community-events select, #tribe-community-events textarea {
-    min-height: 0;
-    padding: 12px;
-    width: auto;
+    min-height: 0 !important;
+    padding: 12px !important;
+    width: auto !important;
 }
 
 /*Featured post widget title fix*/
@@ -12,7 +12,7 @@
 .single-tribe_organizer .featured-content .type-post header.entry-header,
 .single-tribe_events .featured-content .type-post header.entry-header,
 .events-archive .featured-content .type-post header.entry-header {
-    display:block;
+    display:block !important;
 }
 
 /*Filter bar mobile toggle fix*/
