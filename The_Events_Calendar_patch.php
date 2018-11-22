@@ -35,13 +35,11 @@ function tribe_genesis_bypass_genesis_do_post_content() {
  * 2) The Events Calendar is activated
 */
 
-if(is_plugin_active('the-events-calendar/the-events-calendar.php')==TRUE)
-{
-  $theme_name = wp_get_theme();
-  if($theme_name->get('Template') === "genesis")
-  {
-    add_action( 'get_header', 'tribe_genesis_bypass_genesis_do_post_content' );
-    wp_register_style( 'tec_css', plugins_url( '/CSS/tec_css.css' , __FILE__ ) );
+if(in_array('the-events-calendar/the-events-calendar.php', apply_filters('active_plugins', get_option('active_plugins')))){
+	$theme_name = wp_get_theme();
+	if($theme_name->get('Template') === "genesis"){
+		add_action( 'get_header', 'tribe_genesis_bypass_genesis_do_post_content' );
+		wp_register_style( 'tec_css', plugins_url( '/CSS/tec_css.css' , __FILE__ ) );
 		wp_enqueue_style( 'tec_css' );
-  }
+	}
 }
