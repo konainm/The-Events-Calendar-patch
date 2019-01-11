@@ -3,7 +3,7 @@
  * Plugin Name: The Events Calendar patch
  * Plugin URI: https://github.com/KonainM/The-Events-Calendar-patch.git
  * Description: This plugin makes The Events Calendar compatible with Genesis Framework (Genesis 2.2.6+ required). This plugin also makes The Events Calendar plugin WCAG 2.0 AA compliant.
- * Version: 0.1
+ * Version: 1.0
  * Author: Konain Mukadam
  * Author URI: https://github.com/KonainM/
 */
@@ -31,7 +31,7 @@ function tribe_genesis_bypass_genesis_do_post_content() {
 }
 
 
-/* The patches and CSS would only be implemented if both of the following conditions are met
+/* The above patch would only be implemented if all of the following conditions are met
  * 1) Genesis Framework is activated
  * 2) The Events Calendar is activated
 */
@@ -40,9 +40,21 @@ if(in_array('the-events-calendar/the-events-calendar.php', apply_filters('active
 	$theme_name = wp_get_theme();
 	if($theme_name->get('Template') === "genesis"){
 		add_action( 'get_header', 'tribe_genesis_bypass_genesis_do_post_content' );
-		wp_register_style( 'tec_css', plugins_url( '/CSS/tec_css.css' , __FILE__ ) );
-		wp_register_style( 'events_page_css', plugins_url( '/CSS/events_page_css.css', __FILE__ ) );
-		wp_enqueue_style( 'tec_css' );
-		wp_enqueue_style( 'events_page_css' );
 	}
 }
+
+/*
+* The CSS would only be implemented if The Events Calendar is activated.
+*/
+function wcag_styles()
+{
+ if(in_array('the-events-calendar/the-events-calendar.php', apply_filters('active_plugins', get_option('active_plugins')))){
+	 wp_register_style( 'tec_css', plugins_url( '/CSS/tec_css.css' , __FILE__ ) );
+	 wp_register_style( 'events_page_css', plugins_url( '/CSS/events_page_css.css', __FILE__ ) );
+	 wp_enqueue_style( 'tec_css' );
+	 wp_enqueue_style( 'events_page_css' );
+ }
+}
+add_action( 'wp_print_styles', 'wcag_styles', 99 );
+
+?>
