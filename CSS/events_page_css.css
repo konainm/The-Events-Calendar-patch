@@ -57,3 +57,8 @@
 .tribe-events-calendar td.tribe-events-past .tribe-events-month-event-title a, .tribe-events-calendar  {
     opacity: 1.0 !important;
 }
+
+/*Color contrast fix for the blue text: "There were no results found"*/
+.tribe-events-notices {
+    color: #0b608a !important;
+}
