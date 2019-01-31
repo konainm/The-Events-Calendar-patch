@@ -3,7 +3,7 @@
  * Plugin Name: The Events Calendar patch
  * Plugin URI: https://github.com/KonainM/The-Events-Calendar-patch.git
  * Description: This plugin makes The Events Calendar compatible with Genesis Framework (Genesis 2.2.6+ required). This plugin also makes The Events Calendar plugin WCAG 2.0 AA compliant.
- * Version: 1.0
+ * Version: 1.0.1
  * Author: Konain Mukadam
  * Author URI: https://github.com/KonainM/
 */
